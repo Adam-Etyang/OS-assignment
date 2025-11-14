@@ -38,7 +38,6 @@ Result Roundrobin(const vector<process> &processes, int time_quantum) {
   }
 
   queue<int> q;
-  vector<tuple<int, int, int>> gantt;
   unordered_map<int, int> completion;
 
   int time = 0;
@@ -63,7 +62,6 @@ Result Roundrobin(const vector<process> &processes, int time_quantum) {
 
     int exec = min(time_quantum, rem[pid]);
 
-    gantt.push_back({time, time + exec, pid});
     time += exec;
     rem[pid] -= exec;
 
